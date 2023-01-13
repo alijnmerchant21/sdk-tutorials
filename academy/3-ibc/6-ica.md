@@ -6,6 +6,7 @@ tags:
   - concepts
   - ibc
   - dev-ops
+  - optional
 ---
 
 # Interchain Accounts

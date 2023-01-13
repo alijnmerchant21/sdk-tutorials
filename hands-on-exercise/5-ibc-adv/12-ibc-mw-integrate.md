@@ -6,6 +6,7 @@ tags:
   - guided-coding
   - ibc
   - dev-ops
+  - optional
 ---
 
 # Integrate IBC Middleware Into a Chain

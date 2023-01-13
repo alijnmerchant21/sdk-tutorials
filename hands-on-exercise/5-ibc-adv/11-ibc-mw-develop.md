@@ -6,6 +6,7 @@ tags:
   - guided-coding
   - ibc
   - dev-ops
+  - optional
 ---
 
 # Create a Custom IBC Middleware
