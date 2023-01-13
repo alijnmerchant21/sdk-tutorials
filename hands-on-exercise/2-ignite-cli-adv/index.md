@@ -9,7 +9,7 @@ tags:
 ---
 
 <div class="tm-overline tm-rf-1 tm-lh-title tm-medium tm-muted">Continue developing your own Cosmos chain</div>
-<h1 class="mt-4 mb-6">Continue developing your own Cosmos chain</h1>
+<h1 class="mt-4 mb-6">Continue Developing Your Own Cosmos Chain</h1>
 
 You will work further on your checkers blockchain and make your next steps with Ignite CLI. You have a workable checkers blockchain, one which lets players play.
 
