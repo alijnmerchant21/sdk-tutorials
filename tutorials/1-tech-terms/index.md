@@ -1,8 +1,12 @@
 ---
 parent:
-title: Good-To-Know Dev Terms
+  title: Good-To-Know Dev Terms
+  description: Review some technical terms essential when developing in Cosmos
+  number: 1
 order: 0
-description: Review some technical terms essential when developing in Cosmos
+title:
+tags:
+  - tutorial
 ---
 
 # Good-To-Know Dev Terms
@@ -13,6 +17,7 @@ You can find an overview of several technical terms in this section, including a
 
 In this section, you will take a look at the following terms:
 
+* Cosmos and Interchain
 * LCD
 * RPC
 * Protobuf - Protocol Buffers
@@ -24,6 +29,24 @@ All these terms relate to how node interaction is conducted in Cosmos SDK blockc
 </HighlightBox>
 
 Let's dive right into it.
+
+## Cosmos and Interchain
+
+**Cosmos** refers to _the network of application-specific blockchains_, built with the Interchain Stack and inter-connected through the Inter-Blockchain Communication Protocol (IBC). However, Cosmos will soon become known as **the Interchain**. The terms "Cosmos", "Cosmos Ecosystem", and "Interchain" can be understood as synonyms.
+
+### The Interchain Stack
+
+The various tools available to Interchain developers can be referred to collectively as the **Interchain Stack**.
+
+<HighlightBox type="info">
+
+Tools within the Interchain Stack, which contain "Cosmos" in their name will remain unchanged by current terminology changes, such as the **Cosmos SDK** and **CosmWasm**. Any chain built with the Cosmos SDK can typically be referred to as "a Cosmos chain" or "appchain".
+
+</HighlightBox>
+
+### Cosmos Hub
+
+The Cosmos Hub is a chain that serves as an economic hub of the Interchain and service provider to other Cosmos chains. Built with the Interchain Stack, the Hub is home to the ATOM token, Interchain Security, and builders of the Cosmos SDK, Tendermint, and IBC.
 
 ## Light client daemon (LCD)
 
@@ -37,13 +60,13 @@ Take a look at [Light Clients in Tendermint Consensus](https://blog.cosmos.netwo
 
 </HighlightBox>
 
-Therefore, light clients are also vital to how the Inter-Blockchain Communication (IBC) Protocol can track information such as timestamps, root hashes, and the next validator set hash. This saves space and increases efficiency for state update processing.
+Therefore, light clients are also vital to how the Inter-Blockchain Communication Protocol (IBC) can track information such as timestamps, root hashes, and the next validator set hash. This saves space and increases efficiency for state update processing.
 
 The **light client daemon (LCD)** is an HTTP1.1 server exposed by the Cosmos SDK, and its default port is `1317`. It exposes a REST API for the chain, meaning a _representational state transfer application programming interface_ - this API allows for interaction with a RESTful web service. Traditionally, every query was re-implemented for LCD and routed to RPC behind the scenes.
 
 <ExpansionPanel title="Why is it called light client daemon?">
 
-Before SDK v0.40, to get a REST API it was necessary to run another backend service (or _[daemon](https://en.wikipedia.org/wiki/Daemon_(computing))_, a term inherited from Unix), for example using `gaiacli rest-server --laddr 0.0.0.0:1317 --node localhost:26657`. In Cosmos SDK v0.40, REST was moved inside the node service making it part of the Cosmos SDK, but the term "daemon" stuck, leading to the name _light client daemon_ (LDC).
+Before SDK v0.40, to get a REST API it was necessary to run another backend service (or _[daemon](https://en.wikipedia.org/wiki/Daemon_(computing))_, a term inherited from Unix), for example using `gaiacli rest-server --laddr 0.0.0.0:1317 --node localhost:26657`. In Cosmos SDK v0.40, REST was moved inside the node service making it part of the Cosmos SDK, but the term "daemon" stuck, leading to the name _light client daemon_ (LCD).
 
 </ExpansionPanel>
 
@@ -133,13 +156,13 @@ Exposed by Tendermint, the Tendermint RPC endpoint is an HTTP1.1 server. The def
 
 <HighlightBox type="tip">
 
-For more information on the Tendermint RPC, gRPC, and the REST server, a closer look at the [Cosmos SDK documentation](https://docs.cosmos.network/master/core/grpc_rest.html) is recommended.
+For more information on the Tendermint RPC, gRPC, and the REST server, a closer look at the [Cosmos SDK documentation](https://docs.cosmos.network/main/core/grpc_rest.html) is recommended.
 
 </HighlightBox>
 
 <HighlightBox type="info">
 
-Cosmos exposes both the Tendermint RPC and the Cosmos LCD. For example, [CosmJS](/academy/5-cosmjs/cosmjs-intro.md) uses RPC to implement a JSON-RPC API.
+Cosmos exposes both the Tendermint RPC and the Cosmos LCD. For example, [CosmJS](/tutorials/7-cosmjs/1-cosmjs-intro.md) uses RPC to implement a JSON-RPC API.
 
 </HighlightBox>
 
@@ -153,7 +176,7 @@ If you want to get more accustomed to Protobuf, a look at the [official document
 
 <br/>
 
-Also take a look at the [section on this platform on Protobuf](../academy/2-main-concepts/protobuf.md).
+Also take a look at the [section on this platform on Protobuf](/academy/2-cosmos-concepts/6-protobuf.md).
 
 </HighlightBox>
 
@@ -200,11 +223,11 @@ In the Cosmos SDK, there are **two categories of binary wire encoding types**: c
 The Cosmos SDK uses two binary wire encoding protocols:
 
 * **Amino:** an object encoding specification. Every Cosmos SDK module uses an Amino codec to serialize types and interfaces.
-* **[Protocol Buffers (Protobuf)](/academy/2-main-concepts/protobuf.md):** a data serialization method, which developers use to describe message formats.
+* **[Protocol Buffers (Protobuf)](/academy/2-cosmos-concepts/6-protobuf.md):** a data serialization method, which developers use to describe message formats.
 
 Due to reasons such as performance drawbacks and missing cross-language/client support, Protocol Buffers are used more and more over Amino.
 
-For more information on encoding in the Cosmos SDK, see the [Cosmos SDK documentation](https://docs.cosmos.network/master/core/encoding.html).
+For more information on encoding in the Cosmos SDK, see the [Cosmos SDK documentation](https://docs.cosmos.network/main/core/encoding.html).
 
 </ExpansionPanel>
 

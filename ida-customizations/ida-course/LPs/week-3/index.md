@@ -3,9 +3,9 @@ parent:
   title: Introduction to IBC and CosmJS
   description: Learn how to connect chains and how to use CosmJS for the Cosmos SDK
   number: 4
-tags:
 order: 0
 title: Week 3 - Learn How to Connect Chains and How to Use CosmJS for the Cosmos SDK
+tags:
 ---
 
 <div class="tm-overline tm-rf-1 tm-lh-title tm-medium tm-muted">Learn how to connect chains and how to use CosmJS for the Cosmos SDK</div>
@@ -17,13 +17,13 @@ You will learn more about the transportation, authentication, and ordering layer
 
 <HighlightBox type="info">
   
-**OPTIONAL**: the sections on [IBC/TAO connections, channels, and clients](academy/3-ibc/2-connections.md), and [interchain accounts](academy/3-ibc/6-ica.md) are made available in case you want to dive deeper. This content **will not** be tested in the final exam.
+**OPTIONAL**: the sections on [IBC/TAO connections, channels, and clients](/academy/3-ibc/2-connections.md), and [interchain accounts](/academy/3-ibc/6-ica.md) are made available in case you want to dive deeper. This content **will not** be tested in the final exam.
   
 </HighlightBox>
 
-You will also learn about CosmJS, the TypeScript library for the Cosmos SKD. With step-by-step examples, you will learn how to work with CosmJS when building your application-specific blockchain.
+You will also learn about CosmJS, the TypeScript library for the Cosmos SDK. With step-by-step examples, you will learn how to work with CosmJS when building your application-specific blockchain.
 
-![LP image - Week 3](./images/planet-pod.svg)
+![LP image - Week 3](/planet-pod.svg)
 
 ## In this chapter
 
@@ -55,7 +55,7 @@ This chapter covers quite a lot of content that goes very deep into the intricac
 Please be aware that the recommended **essentials** for IBC are:
 
 * [What is IBC?](/academy/3-ibc/1-what-is-ibc.md)
-* [IBC Fungible Token Transfer](/academy/3-ibc/5-token-transfer.md)
+* [IBC Token Transfer](/academy/3-ibc/5-token-transfer.md)
 * [IBC Tooling](/academy/3-ibc/7-ibc-tooling.md)
 
 The following sections are optional and **NOT** final exam relevant:
@@ -69,19 +69,21 @@ The following sections are optional and **NOT** final exam relevant:
 
 <HighlightBox type="info">
 
-**Live Session**
-<br/>
-This week you can join the third live session on **September 29th, 3 pm UTC**: _Introduction to CosmJS_ with Noam Cohen, Developer Relations Lead for Cosmos Hub.
-<br/>
-Detailed information on how to join the session will be provided via email and Discord.
-<br/>
-You should have received an email with a link to each session to be added to your calendar. We will post the session links on the day of the session on discord. Do not worry if you cannot make it to the session, we will record and publish them in the Academy.
+Here you can find **recordings** of the live sessions _Introduction to CosmJS_ with Noam Cohen and _Introduction to IBC_ with Thomas Dekeyser, Developer Relations Engineer for IBC:
+  
+* _Introduction to CosmJS_ with Noam Cohen:
+
+<YoutubePlayer videoId="RlqjEVIv1Pg"/>
+
+* _Introduction to IBC_ with Thomas Dekeyser:
+
+<YoutubePlayer videoId="HCO7qTOdNGI"/>
 
 </HighlightBox>
 
 ## Next up
 
-First, begin with an [introduction to IBC](/academy/3-ibc/1-what-is-ibc.md), then you can go ahead an head to the section on [fungible token transfers](/academy/3-ibc/5-token-transfer.md). After getting an [overview on helpful tools for IBC](/academy/3-ibc/7-ibc-tooling.md), you can start your ComsJS journey with an [introduction section](tutorials/6-cosmjs/1-cosmjs-intro.md).
+First, begin with an [introduction to IBC](/academy/3-ibc/1-what-is-ibc.md), then you can go ahead an head to the section on [fungible token transfers](/academy/3-ibc/5-token-transfer.md). After getting an [overview on helpful tools for IBC](/academy/3-ibc/7-ibc-tooling.md), you can start your ComsJS journey with an [introduction section](/tutorials/7-cosmjs/1-cosmjs-intro.md).
 
 ## Developer Resources
 

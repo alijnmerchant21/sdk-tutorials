@@ -14,7 +14,8 @@
     "switch-main": "make fs-restore-main-files",
     "add-ida-file": "sh ./create-ida-file.sh",
     "link:check": "npx check-md",
-    "link:fix": "npx check-md --fix"
+    "link:fix": "npx check-md --fix",
+    "check-config": "node ./check-config.js"
   },
   "keywords": [
     "Cosmos",
@@ -30,6 +31,7 @@
   "dependencies": {
     "@cosmos-ui/vue": "^0.35.0",
     "@vuepress/plugin-google-analytics": "1.7.1",
+    "@vuepress/plugin-html-redirect": "^0.1.4",
     "algoliasearch": "^4.2.0",
     "axios": "^0.26.1",
     "check-md": "^1.0.2",
@@ -56,7 +58,8 @@
     "v-runtime-template": "^1.10.0",
     "vue-h5p": "^0.5.3",
     "vuepress": "^1.5.4",
-    "vuepress-plugin-sitemap": "^2.3.1"
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-reading-time-extended": "git+https://github.com/b9lab/vuepress-reading-time-extended.git"
   },
   "devDependencies": {
     "@vuepress/plugin-medium-zoom": "^1.9.7",
@@ -65,9 +68,13 @@
     "node-forge": "^1.3.1",
     "set-value": "^4.1.0",
     "ssri": "^8.0.1",
-    "watchpack": "^2.0.0"
+    "watchpack": "^2.4.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
   },
   "engines": {
-    "node": ">=14 <15"
+    "node": ">=14 <15",
+    "npm": ">=7"
   }
 }

@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   theme: "cosmos",
-  title: "Cosmos Developer Portal",
+  title: "Developer Portal",
   head: [
     [
       "link",
@@ -42,85 +42,70 @@ module.exports = {
       },
     ],
     [
-      "script", 
-      {}, 
+      "script",
+      {},
       `const userThemeMode = localStorage?.getItem("vuepress-theme-cosmos-user-theme") || 'dark-mode'
-      document.documentElement.className = userThemeMode`
-    ]
+      document.documentElement.className = userThemeMode`,
+    ],
   ],
   themeConfig: {
     repo: "cosmos/sdk-tutorials",
     docsRepo: "cosmos/sdk-tutorials",
     editLinks: true,
     label: "sdk",
+    isIDAMode: false,
     algolia: {
-      id: "BH4D9OD16A",
-      key: "7976d773390a0be350dc24b0571eee15",
-      index: "cosmos-sdk_tutorials",
+      id: "QLS2QSP47E",
+      key: "ca3a435a218a2eb0f99a31f83b2ec309",
+      index: "cosmos_network_tutorials",
     },
     topbar: {
       banner: true,
     },
-    allowedIDAOrigins: [
-      "preview-5bxuue6kafu5ocp5", 
-      "deploy-preview-995", 
-      "deploy-preview-994", 
-      "deploy-preview-991",
-      "deploy-preview-1047"
-    ],
     sidebar: {
       auto: false,
       hideProducts: true,
-      filterByTagEnabled: false,
+      filterByTagEnabled: true,
       nav: [
         {
-          title: "Cosmos Academy",
+          title: "Introduction to Cosmos",
+          order: 1,
           children: [
             {
-              title: "Welcome",
-              path: "/academy/0-welcome/",
-              directory: false,
-            },
-            {
               title: "What is Cosmos?",
-              path: "/academy/1-what-is-cosmos",
+              path: "/academy/1-what-is-cosmos/",
               directory: true,
             },
             {
-              title: "Main Concepts",
-              path: "/academy/2-main-concepts",
+              title: "Cosmos Concepts",
+              path: "/academy/2-cosmos-concepts/",
               directory: true,
             },
             {
-              title: "Run Your Own Cosmos Chain",
-              path: "/academy/3-my-own-chain",
+              title: "Introduction to IBC",
+              path: "/academy/3-ibc/",
               directory: true,
-            },
-            {
-              title: "The Inter-Blockchain Communication Protocol",
-              path: "/academy/4-ibc",
-              directory: true,
-            },
-
-            {
-              title: "CosmJS",
-              path: "/academy/5-cosmjs",
-              directory: true,
-            },
-            {
-              title: "What's Next?",
-              path: "/academy/6-whats-next/",
-              directory: false,
             },
           ],
         },
         {
           title: "Tutorials",
+          order: 2,
           children: [
             {
               title: "Good-To-Know Dev Terms",
               path: "/tutorials/1-tech-terms/",
-              directory: false,
+              directory: true,
+            },
+            {
+              title: "Set Up Your Work Environment",
+              path: "/tutorials/2-setup/",
+              directory: true,
+            },
+            {
+              title: "Run a Node, API, and CLI",
+              path: "/tutorials/3-run-node/",
+              directory: true,
             },
             {
               title: "Golang Introduction",
@@ -128,30 +113,72 @@ module.exports = {
               directory: true,
             },
             {
-              title: "Understanding IBC denoms",
-              path: "/tutorials/understanding-ibc-denoms/",
-              directory: false,
+              title: "Docker Introduction",
+              path: "/tutorials/5-docker-intro/",
+              directory: true,
             },
             {
-              title: "Understanding the Authz Module",
-              path: "/tutorials/understanding-authz/",
-              directory: false,
+              title: "IBC Developers",
+              path: "/tutorials/6-ibc-dev/",
+              directory: true,
             },
             {
-              title: "Understanding the Feegrant Module",
-              path: "/tutorials/understanding-feegrant/",
-              directory: false,
+              title: "Introduction to CosmJS",
+              path: "/tutorials/7-cosmjs/",
+              directory: true,
             },
             {
-              title: "Understanding the Group Module",
-              path: "/tutorials/understanding-group/",
-              directory: false,
+              title: "Understand SDK modules",
+              path: "/tutorials/8-understand-sdk-modules/",
+              directory: true,
             },
             {
-              title: "How to use IPFS",
-              path: "/tutorials/how-to-use-ipfs/",
+              title: "The Path to Production",
+              path: "/tutorials/9-path-to-prod/",
+              directory: true,
+            },
+          ],
+        },
+        {
+          title: "Hands-on Exercise",
+          order: 3,
+          children: [
+            {
+              title: "Run Your Own Cosmos Chain",
+              path: "/hands-on-exercise/1-ignite-cli/",
+              directory: true,
+            },
+            {
+              title: "Continue Developing Your Chain",
+              path: "/hands-on-exercise/2-ignite-cli-adv/",
+              directory: true,
+            },
+            {
+              title: "CosmJS for Your Chain",
+              path: "/hands-on-exercise/3-cosmjs-adv/",
+              directory: true,
+            },
+            {
+              title: "From Code to MVP to Production",
+              path: "/hands-on-exercise/4-run-in-prod/",
+              directory: true,
+            },
+            {
+              title: "IBC Advanced",
+              path: "/hands-on-exercise/5-ibc-adv/",
+              directory: true,
+            },
+          ],
+        },
+        {
+          title: "What's Next",
+          order: 4,
+          children: [
+            {
+              title: "Continue Your Cosmos Journey",
+              path: "/academy/whats-next/",
               directory: false,
-            }
+            },
           ],
         },
       ],
@@ -180,8 +207,7 @@ module.exports = {
     footer: {
       privacy: "https://v1.cosmos.network/privacy",
       question: {
-        text:
-          "Chat with Cosmos developers in <a href='https://discord.gg/cosmosnetwork' target='_blank'>Discord</a> or reach out on the <a href='https://forum.cosmos.network/c/cosmos-sdk' target='_blank'>SDK Developer Forum</a> to learn more.",
+        text: "Chat with Cosmos developers in <a href='https://discord.gg/cosmosnetwork' target='_blank'>Discord</a> or reach out on the <a href='https://forum.cosmos.network/c/cosmos-sdk' target='_blank'>SDK Developer Forum</a> to learn more.",
       },
       logo: "/brand.png",
       textLink: {
@@ -199,7 +225,7 @@ module.exports = {
         },
         {
           service: "discord",
-          url: "https://discord.gg/cosmosnetwork"
+          url: "https://discord.gg/cosmosnetwork",
         },
         {
           service: "linkedin",
@@ -216,7 +242,7 @@ module.exports = {
         {
           service: "youtube",
           url: "https://www.youtube.com/c/CosmosProject",
-        }
+        },
       ],
       smallprint:
         "† This website is maintained by the Interchain Foundation (ICF). The contents and opinions of this website are those of the ICF. The ICF provides links to cryptocurrency exchanges as a service to the public. The ICF does not warrant that the information provided by these websites is correct, complete, and up-to-date. The ICF is not responsible for their content and expressly rejects any liability for damages of any kind resulting from the use, reference to, or reliance on any information contained within these websites.",
@@ -271,14 +297,50 @@ module.exports = {
       ],
     },
     tags: {
-      'deep-dive': {
-        color: 'var(--color-secondary)',
-        label: 'Deep dive'
+      'dev-ops': {
+        color: '#54ffe0',
+        label: 'DevOps',
+        isBright: true
       },
-      'fast-track': {
-        color: 'var(--color-primary)',
-        label: 'Fast track'
-      }
+      'cosmos-sdk': {
+        color: '#F69900',
+        label: 'Cosmos SDK',
+        isBright: true
+      },
+      'ibc': {
+        color: '#ff1717',
+        label: 'IBC'
+      },
+      'cosm-js': {
+        color: '#6836D0',
+        label: 'CosmJS'
+      },
+      'cosm-wasm': {
+        color: '#05BDFC',
+        label: 'CosmWasm'
+      },
+      'tendermint': {
+        color: '#00B067',
+        label: 'Tendermint'
+      },
+      'cosmos-hub': {
+        color: '#f7f199',
+        label: 'Cosmos Hub',
+        isBright: true
+      },
+      'concepts': {
+        color: '#AABAFF',
+        label: 'Concept',
+        isBright: true
+      },
+      'tutorial': {
+        color: '#F46800',
+        label: 'Tutorial'
+      },
+      'guided-coding': {
+        color: '#F24CF4',
+        label: 'Guided Coding'
+      },
     },
     feedback: {
       formId: "xyylrkbl",
@@ -292,7 +354,7 @@ module.exports = {
           name: "Documentation",
           url: "https://docs.cosmos.network/"
         }],
-        image: "/cosmos-sdk-icon.svg"
+        image: "/cosmos-sdk-icon.svg",
       },
       {
         title: "Tendermint Core",
@@ -301,7 +363,7 @@ module.exports = {
           name: "Documentation",
           url: "https://docs.tendermint.com/"
         }],
-        image: "/tendermint-icon.svg"
+        image: "/tendermint-icon.svg",
       },
       {
         title: "Cosmos Hub",
@@ -310,7 +372,7 @@ module.exports = {
           name: "Documentation",
           url: "https://hub.cosmos.network/"
         }],
-        image: "/generic-star-icon.svg"
+        image: "/generic-star-icon.svg",
       },
       {
         title: "IBC",
@@ -319,36 +381,56 @@ module.exports = {
           name: "Documentation",
           url: "https://ibc.cosmos.network/"
         }],
-        image: "/ibc-icon.svg"
-      }
+        image: "/ibc-icon.svg",
+      },
     ],
     assetsOptimization: {
       breakpoints: [200, 600, 988, 1200],
       blacklist: ['node_modules', '.vuepress/dist', '.vuepress/theme', '.vuepress/public/resized-images', '.vuepress/public/h5p']
-    }
+    },
   },
   plugins: [
     [
       "@vuepress/google-analytics",
       {
         ga: "UA-51029217-2",
-      }
+      },
     ],
     [
       "vuepress-plugin-google-tag-manager",
       {
         gtm: "UA-51029217-2",
-      }
+      },
     ],
     [
-      "@vuepress/medium-zoom", 
+      "@vuepress/medium-zoom",
       {
         selector: ".layout__main__content :not(a) > img:not(.no-zoom)",
         options: {
-          background: "#000000"
-        }
-      }
-    ]
+          background: "#000000",
+        },
+      },
+    ],
+    [
+      require("vuepress-reading-time-extended"),
+      {
+        wordsPerMinute: 200,
+        imageTime: 2,
+        codeTimePerLine: 0.5,
+        customComponents: [
+          {
+            name: 'H5PComponent',
+            time: 5,
+          },
+        ],
+      },
+    ],
+    [
+      '@vuepress/html-redirect',
+      {
+        countdown: 0,
+      },
+    ],
   ],
   patterns: [
     "README.md",
@@ -356,6 +438,7 @@ module.exports = {
     "academy/*/*.md",
     "tutorials/*/*.md",
     "course-ida/*/*.md",
-    "course-ida/*.md"
-  ]
+    "course-ida/*.md",
+    "hands-on-exercise/*/*.md",
+  ],
 };
