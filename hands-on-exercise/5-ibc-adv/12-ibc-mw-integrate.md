@@ -1,5 +1,5 @@
 ---
-title: "Integrating IBC Middleware Into a Chain"
+title: "Integrate IBC Middleware Into a Chain"
 order: 12
 description: Integrate IBC middleware with a base application
 tags: 
