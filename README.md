@@ -13,10 +13,10 @@ tools:
         url: https://docs.cosmos.network/
     image: /cosmos-sdk-icon.svg
   - title: CometBFT
-    description: Blockchain consensus engine using the Tendermint algorithm.
+    description: Tthe state replication engine that powers the interchain stack. CometBFT is a fork and successor of Tendermint core.
     links:
       - name: Learn more
-        url: https://docs.cometbft.com/v0.37/
+        url: http://cometbft.com
       - name: Documentation
         url: https://docs.cometbft.com/v0.37/core/
     image: /tendermint-icon.svg
@@ -156,7 +156,7 @@ customModules:
             path: /academy/2-cosmos-concepts/1-architecture.html
             tags: 
               - concepts
-              - tendermint
+              - cometBFT
               - cosmos-sdk
           - title: Accounts
             path: /academy/2-cosmos-concepts/2-accounts.html
@@ -391,7 +391,7 @@ These tutorials guide you through actionable steps and walk-throughs to teach yo
 
 * **Cosmos SDK**, a modular framework to build blockchain applications
 * **IBC**, the Inter-Blockchain Communication protocol that allows blockchains to communicate 
-* **Tendermint**, the algorithm that provides the consensus and networking layer for your blockchain application through CometBFT
+* **CometBFT**, the state replication engine for powering the interchain stack. CometBFT is a fork and successor of Tendermint core. 
 
 The Developer Portal contains three types of content:
 
@@ -403,7 +403,7 @@ Going through the entire content will teach you about:
 
 * Blockchain technology and cryptography
 * Developing with the Cosmos SDK & Ignite CLI
-* The Tendermint consensus algorithm
+* The CometBFT state replication engine
 * The Inter-Blockchain Communication Protocol
 * Building front- and backends with CosmJS
 * Integrating wallets such as Keplr
