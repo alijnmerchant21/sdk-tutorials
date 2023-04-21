@@ -124,7 +124,7 @@ See the 2016 [Cosmos Whitepaper](https://v1.cosmos.network/resources/whitepaper)
 
 Kwon invented the original Tendermint mechanism in 2014. Buchman and Kwon began working together in 2015, and jointly founded Tendermint Inc by the end of the year.
 
-<ExpansionPanel title="Tendermint: what you need to know">
+<ExpansionPanel title="CometBFT: what you need to know">
 
 Since Jan 2023, Tendermint core repo was archieved [per Jae](https://github.com/tendermint/tendermint/issues/9972) and CometBFT a fork of Tendermint is used as official state replication engine for Interchain. This [announcement](https://medium.com/the-interchain-foundation/cosmos-meet-cometbft-d89f5dce60dd) goes into details of the fork and next steps. 
 
