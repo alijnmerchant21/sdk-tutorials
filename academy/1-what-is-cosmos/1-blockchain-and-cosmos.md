@@ -4,7 +4,7 @@ order: 2
 description: Cosmos as part of blockchain technology
 tags: 
   - concepts
-  - tendermint
+  - cometBFT
   - cosmos-sdk
 ---
 
@@ -126,41 +126,43 @@ Kwon invented the original Tendermint mechanism in 2014. Buchman and Kwon began 
 
 <ExpansionPanel title="Tendermint: what you need to know">
 
-Tendermint is a consensus algorithm with Byzantine Fault-Tolerance (BFT) and a consensus engine. It enables applications to be replicated in sync on many machines. Blockchain networks require BFT to ensure proper function even with malfunctioning or malicious nodes present. The result is known as a *Replicated State Machine with Byzantine Fault Tolerance*. It guarantees BFT properties for distributed systems and their applications.
+Since Jan 2023, Tendermint core repo was archieved [per Jae](https://github.com/tendermint/tendermint/issues/9972) and CometBFT a fork of Tendermint is used as official state replication engine for Interchain. This [announcement](https://medium.com/the-interchain-foundation/cosmos-meet-cometbft-d89f5dce60dd) goes into details of the fork and next steps. 
+
+CometBFT is a state replication engine with Byzantine Fault-Tolerance (BFT), that is based on Tendermint consensus engine. Blockchain networks require BFT to ensure proper function even with malfunctioning or malicious nodes present. The result is known as a _Replicated State Machine with Byzantine Fault Tolerance_. It guarantees BFT properties for distributed systems and their applications.
 <br/><br/>
 It does this:
 
-* **Securely** - Tendermint continues working even if up to 1/3rd of machines fail or misbehave.
-* **Consistently** - every machine computes the same state and accesses the same transaction log.
+* **Securely** - CometBFT continues working even if up to 1/3rd of machines fail or misbehave.
+* **Consistently** - Every machine computes the same state and accesses the same transaction log.
 
-Tendermint is widely used across the industry and is the most mature BFT consensus engine for Proof-of-Stake (PoS) blockchains.
+CometBFT is being widely adopted across the industry while providing stable and regular updates to the BFT consensus engine for Proof-of-Stake (PoS) blockchains.
 
 <HighlightBox type="tip">
 
-For more on Tendermint, see this helpful [introduction](https://docs.tendermint.com/v0.34/introduction/what-is-tendermint.html).
+For more information on CometBFT, see this helpful [introduction](https://docs.cometbft.com/v0.37/introduction/what-is-cometbft).
 
 </HighlightBox>
 
 </ExpansionPanel>
 
-Initially, Cosmos was an open-source community project built by the Tendermint team. Since then, the **Interchain Foundation (ICF)** has assisted with the development and launch of the network. The ICF is a Swiss non-profit that raised funds in 2017 to finance the development of open-source projects building on the Cosmos network.
+Initially, Cosmos was an open-source community project built by the Tendermint Inc. team. Since then, the **Interchain Foundation (ICF)** has assisted with the development and launch of the network. The ICF is a Swiss non-profit that raised funds in 2017 to finance the development of open-source projects building on the Cosmos network.
 
 The founding **vision** of Cosmos is that of an easy development environment for blockchain technology. Cosmos wants to address the main issues of previous blockchain projects and provide interoperability between chains to foster an **internet of blockchains**.
 
-*How is Cosmos an internet of blockchains?* Cosmos is a **network of interoperable blockchains**, each implemented with different properties suitable for their individual use cases. Cosmos lets developers create blockchains that maintain sovereignty free from any "main chain" governance, have fast transaction processing, and are interoperable. With Cosmos, a multitude of use cases becomes feasible.
+_How is Cosmos an internet of blockchains?_ Cosmos is a **network of interoperable blockchains**, each implemented with different properties suitable for their individual use cases. Cosmos lets developers create blockchains that maintain sovereignty free from any "main chain" governance, have fast transaction processing, and are interoperable. With Cosmos, a multitude of use cases becomes feasible.
 
-To achieve this vision and type of network, the ecosystem relies on an **open-source toolkit**, including the [Inter-Blockchain Communication Protocol (IBC)](https://ibcprotocol.dev), its implementation in the [Cosmos SDK](https://v1.cosmos.network/sdk), and [Tendermint](https://tendermint.com/) as the base layer providing distributed state finality. A set of modular, adaptable, and interchangeable tools helps not only to quickly create a blockchain but also facilitates the customization of secure and scalable chains.
+To achieve this vision and type of network, the ecosystem relies on an **open-source toolkit**, including the [Inter-Blockchain Communication Protocol (IBC)](https://ibcprotocol.dev), its implementation in the [Cosmos SDK](https://v1.cosmos.network/sdk), and [CometBFT](http://cometbft.com) as the base layer providing distributed state finality. A set of modular, adaptable, and interchangeable tools helps not only to quickly create a blockchain but also facilitates the customization of secure and scalable chains.
 
-The interoperable application blockchains on Cosmos are built with the Cosmos SDK. The Cosmos SDK includes the prerequisites that make it possible for created blockchains to participate in inter-chain communications using the Inter-Blockchain Communication Protocol (IBC). Chains built with the Cosmos SDK use the Tendermint consensus. Each of these topics is explored in more detail in the sections that follow.
+The interoperable application blockchains on Cosmos are built with the Cosmos SDK. The Cosmos SDK includes the prerequisites that make it possible for created blockchains to participate in inter-chain communications using the Inter-Blockchain Communication Protocol (IBC). Chains built with the Cosmos SDK use CometBFT state replication engine. Each of these topics is explored in more detail in the sections that follow.
 
 ### How does Cosmos solve the scalability issue?
 
 Scalability is a core challenge of blockchain technology. Cosmos allows applications to scale to millions of users. This degree of scalability is possible as Cosmos addresses **two types of scalability**:
 
-* **Horizontal scalability:** scaling by adding similar machines to the network. When "scaling *out*", the network can accept more nodes to participate in the state replication, consensus observation, and any activity that queries the state.
-* **Vertical scalability:** scaling by improving the network's components to increase its computational power. When "scaling *up*", the network can accept more transactions and any activity that modifies the state.
+* **Horizontal scalability:** scaling by adding similar machines to the network. When "scaling _out_", the network can accept more nodes to participate in the state replication, consensus observation, and any activity that queries the state.
+* **Vertical scalability:** scaling by improving the network's components to increase its computational power. When "scaling _up_", the network can accept more transactions and any activity that modifies the state.
 
-In a blockchain context, vertical scalability is typically achieved through the optimization of the consensus mechanism and applications running on the chain. On the consensus side, Cosmos achieves vertical scalability with the help of the Tendermint BFT. The Cosmos Hub currently conducts transactions in seven seconds. The only remaining bottleneck is then the application.
+In a blockchain context, vertical scalability is typically achieved through the optimization of the consensus mechanism and applications running on the chain. On the consensus side, Cosmos achieves vertical scalability with the help of the CometBFT. The Cosmos Hub currently conducts transactions in seven seconds. The only remaining bottleneck is then the application.
 
 The consensus mechanism and application optimization of your blockchain can only take you so far. To overcome the limits of vertical scalability, the multi-chain architecture of Cosmos allows for **one application to run in parallel** on different but IBC-coordinated chains, whether operated by the same validator set or not. This inter-chain, horizontal scalability theoretically allows for infinite vertical-like scalability, minus the coordination overhead.
 
