@@ -5,6 +5,7 @@ description: A universe to discover
 tags: 
   - concepts
   - tendermint
+  - cometBFT
   - cosm-wasm
   - ibc
   - cosmos-sdk
@@ -80,7 +81,7 @@ The Cosmos network focuses on an ecosystem for easy blockchain development that 
 
 Before Cosmos came along, developing a whole new chain was much more difficult and expensive than building a smart contract. Now, with the Cosmos SDK, entirely flexible, secure, high performance, and sovereign **application-specific blockchains** can be developed. To allow this, building modular, adaptable, and interchangeable open-source development tools is at the center of Cosmos' mission.
 
-The main aim of the Cosmos network is to provide an **ecosystem for easy blockchain development** based on the Tendermint BFT and the Inter-Blockchain Communication Protocol (IBC) with the so-called [Cosmos SDK](https://v1.cosmos.network/sdk).
+The main aim of the Cosmos network is to provide an **ecosystem for easy blockchain development** based on the CometBFT and the Inter-Blockchain Communication Protocol (IBC) with the so-called [Cosmos SDK](https://v1.cosmos.network/sdk).
 
 Each chain in the Cosmos Ecosystem relies on the Tendermint **fast-finality BFT consensus algorithm**. This ensures a common consensus mechanism at work in all chains of the network. Next to its use in Cosmos, the Tendermint consensus mechanism is also utilized in the [Binance Chain](https://www.binance.org/en), [Kava](https://www.kava.io/), and more.
 
@@ -90,7 +91,7 @@ If you want to dive deeper into application-specific blockchains, look at the se
 
 </HighlightBox>
 
-The Cosmos SDK is a generalized framework to build secure blockchain applications on the Tendermint BFT in Golang. It is a modular framework for application-specific blockchains. The design is based on **two major principles**: modularity and capability-based security. The Cosmos SDK was envisioned to be an npm-like framework for secure applications on top of Tendermint. Over time it has become an advanced framework for custom application-specific blockchains.
+The Cosmos SDK is a generalized framework to build secure blockchain applications on the CometBFT in Golang. It is a modular framework for application-specific blockchains. The design is based on **two major principles**: modularity and capability-based security. The Cosmos SDK was envisioned to be an npm-like framework for secure applications on top of CometBFT. Over time it has become an advanced framework for custom application-specific blockchains.
 
 The ready-built modules of the Cosmos SDK are easy to import, adapt, and use. Developers can create their own modules to introduce specific functionalities. With the growth of the ecosystem, the number of modules will grow, facilitating the development of more complex applications.
 
@@ -107,7 +108,7 @@ The Cosmos SDK is built on the [object-capability model](https://docs.cosmos.net
 
 <HighlightBox type="info">
 
-The default consensus mechanism available when developing with the SDK is the [Tendermint Core](https://docs.tendermint.com/v0.34/tendermint-core/).
+The default consensus mechanism available when developing with the SDK is the [CometBFT](http://cometbft.com).
 
 </HighlightBox>
 
@@ -121,7 +122,7 @@ If you are interested in hearing more from the Cosmos SDK team itself, in the fo
 
 ## The Inter-Blockchain Communication Protocol
 
-The [Inter-Blockchain Communication Protocol (IBC)](https://ibcprotocol.org/) is the basis for **interoperability** in Cosmos. It leverages the instant finality of Tendermint to allow for the transfer of value (token transfers) and communication between heterogeneous chains. Blockchains with different applications and architecture specifications become interoperable whether or not they share a validator set.
+The [Inter-Blockchain Communication Protocol (IBC)](https://ibcprotocol.org/) is the basis for **interoperability** in Cosmos. It leverages the instant finality of CometBFT to allow for the transfer of value (token transfers) and communication between heterogeneous chains. Blockchains with different applications and architecture specifications become interoperable whether or not they share a validator set.
 
 Without IBC, the interoperability of heterogeneous chains is difficult to achieve because they may implement the consensus, networking, and application layers in different ways. As soon as a blockchain is compatible with IBC, it becomes interoperable with other blockchains.
 
@@ -141,7 +142,7 @@ If you want more detailed information on hubs and zones on the mainnet and in th
 
 The **[Cosmos Hub](https://hub.cosmos.network/main/hub-overview/overview.html)** was the first hub created. It is a public Proof-of-Stake (PoS) blockchain with a native token, ATOM. The Cosmos Hub can be understood as a router facilitating transactions between the chains connected to it. For example, the Cosmos Hub allows for transaction fees to be paid in different tokens as long as the zone trusts the Cosmos Hub and the other zones connected to it.
 
-_How do we connect our chain to a non-Tendermint chain?_ The IBC connection is not limited to Tendermint-based chains. If another, non-Tendermint blockchain uses a fast-finality consensus algorithm, a connection can be established by adapting IBC to work with the non-Tendermint consensus mechanism.
+*How do we connect our chain to a non-CometBFT chain?* The IBC connection is not limited to CometBFT-based chains. If another, non-CometBFT blockchain uses a fast-finality consensus algorithm, a connection can be established by adapting IBC to work with the non-CometBFT consensus mechanism.
 
 If the other chain is a **probabilistic-finality chain**, a simple adaptation of IBC is not sufficient. A proxy chain called a **peg-zone** helps establish interoperability. Peg-zones are fast-finality blockchains which track chain states to establish finality. The peg-zone chain itself is IBC-compatible and acts as a **bridge** between the rest of the IBC network's chains and the probabilistic-finality chain.
 
@@ -163,7 +164,7 @@ Want to learn more about modules in the Cosmos SDK? See the [Modules section](..
 
 [Atlas](https://atlas.cosmos.network/) implements a registry for such modules. Developers can publish, update, and download Cosmos SDK modules with Atlas. It is a helpful tool for developers who wish to get an overview of existing modules when developing their applications.
 
-Atlas also offers a [node explorer](https://atlas.cosmos.network/nodes) that lets you crawl through nodes of a Tendermint-based network to discover its topology and observe node metadata.
+Atlas also offers a [node explorer](https://atlas.cosmos.network/nodes) that lets you crawl through nodes of a CometBFT-based network to discover its topology and observe node metadata.
 
 <HighlightBox type="tip">
 
@@ -175,7 +176,7 @@ Read the [node explorer documentation](https://github.com/cosmos/atlas/blob/main
 
 ## Ignite CLI - building application-specific blockchains with one command
 
-[Ignite CLI](https://ignite.com/cli) is a developer-friendly, command-line interface (CLI) tool for application-specific blockchains which builds on Tendermint and the Cosmos SDK. The CLI tool offers everything developers need to build, test, and launch a chain. It accelerates blockchain development by scaffolding and assembling all components needed for a production-ready blockchain. Ignite CLI makes the process from initial idea to production 95% faster. This lets developers build a blockchain in minutes, and frees them to focus more strongly on the business logic of their application.
+[Ignite CLI](https://ignite.com/cli) is a developer-friendly, command-line interface (CLI) tool for application-specific blockchains which builds on CometBFT and the Cosmos SDK. The CLI tool offers everything developers need to build, test, and launch a chain. It accelerates blockchain development by scaffolding and assembling all components needed for a production-ready blockchain. Ignite CLI makes the process from initial idea to production 95% faster. This lets developers build a blockchain in minutes, and frees them to focus more strongly on the business logic of their application.
 
 With Ignite CLI, developers can:
 
@@ -196,7 +197,7 @@ When you scaffold with Ignite CLI, things like key management, creating validato
 
 [CosmWasm](https://cosmwasm.com/) is a multi-chain solution for smart contracts on Cosmos - that is the Cosm part. It is a way of using WebAssembly in the Cosmos universe - that is the Wasm part.
 
-With [CosmWasm](https://cosmwasm.com/) you can create robust decentralized applications (dApps) for Cosmos using smart contracts and building on Tendermint and the Cosmos SDK. Its key features are:
+With [CosmWasm](https://cosmwasm.com/) you can create robust decentralized applications (dApps) for Cosmos using smart contracts and building on CometBFT and the Cosmos SDK. Its key features are:
 
 * Mature tools for the development and testing of smart contracts
 * Close integration with the Cosmos SDK and ecosystem
