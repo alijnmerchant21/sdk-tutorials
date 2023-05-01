@@ -1,12 +1,10 @@
 ---
 title: "A Blockchain App Architecture"
 order: 2
-description: ABCI, CometBFT, and state machines
+description: ABCI, Tendermint, and state machines
 tags: 
   - concepts
   - cosmos-sdk
-  - cometBFT
-
 ---
 
 # A Blockchain App Architecture
@@ -17,7 +15,7 @@ In this section, you will look closer at the application architecture underlying
 
 In this section, you will deepen your understanding of the application architecture underlying blockchains built with the Cosmos SDK. You will explore:
 
-* What CometBFT is
+* What Tendermint is
 * Consensus in Cosmos
 * The Application Blockchain Interface
 * The Cosmos SDK
@@ -25,17 +23,15 @@ In this section, you will deepen your understanding of the application architect
 
 </HighlightBox>
 
-## What is CometBFT?
+## What is Tendermint?
 
-[CometBFT](http://cometbft.com), a fork and successor of Tendermint core acts as the official state replication engine for powering the interchain stack.
+Created in 2014, [Tendermint](https://tendermint.com/) accelerates the development of distinct blockchains with a ready-made networking and consensus solution, so developers do not have to recreate these features for each new case. You may already use Tendermint without being aware of it, as other blockchains like [Hyperledger Burrow](https://hyperledger.github.io/burrow/#/) and the [Binance Chain](https://www.binance.org/en/smartChain) use Tendermint.
 
-[Tendermint](https://tendermint.com/) was created in 2014 and accelerated the development of distinct blockchains with a ready-made networking and consensus solution, so developers do not have to recreate these features for each new case. You may have already used Tendermint without being aware of it, as other blockchains like [Hyperledger Burrow](https://hyperledger.github.io/burrow/#/) and the [Binance Chain](https://www.binance.org/en/smartChain) used Tendermint.
-
-CometBFT modules **attend to consensus and networking**, which are important components of any blockchain. This frees developers to focus on the application level without descending into lower-level blockchain concerns such as peer discovery, block propagation, consensus, and transaction finalization. Without CometBFT, developers would be forced to build software to address these concerns, which would add additional time, complexity, and cost to the development of their applications.
+Tendermint modules **attend to consensus and networking**, which are important components of any blockchain. This frees developers to focus on the application level without descending into lower-level blockchain concerns such as peer discovery, block propagation, consensus, and transaction finalization. Without Tendermint, developers would be forced to build software to address these concerns, which would add additional time, complexity, and cost to the development of their applications.
 
 ![Blockchain application architecture overview](/academy/2-cosmos-concepts/images/architecture_overview.png)
 
-A blockchain node for an application-focused Cosmos blockchain consists of a state-machine, built with the Cosmos SDK, and the consensus and networking layer, which are handled by [CometBFT](https://docs.cometbft.com).
+A blockchain node for an application-focused Cosmos blockchain consists of a state-machine, built with the Cosmos SDK, and the consensus and networking layer, which are handled by [CometBFT](https://docs.cometbft.com/v0.37/).
 
 <ExpansionPanel title="What is CometBFT?">
 
@@ -48,7 +44,7 @@ CometBFT is maintained even when 1/3rd of all machines fail, by providing two co
 
 <HighlightBox type="tip">
 
-Want to continue exploring this useful component of the Cosmos SDK? Find further information though the [CometBFT documentation](https://docs.cometbft.com/).
+Want to continue exploring this useful component of the Cosmos SDK? Find further information though the [CometBFT documentation](https://docs.cometbft.com/v0.37/).
 
 </HighlightBox>
 
@@ -85,7 +81,7 @@ Validators and delegators are the parties who vote on proposals, with weights pr
 
 ## Application Blockchain Interface (ABCI)
 
-[CometBFT](https://docs.cometbft.com) packages the networking and consensus layers of a blockchain and presents an interface to the application layer, the **Application Blockchain Interface (ABCI)**. Developers can focus on higher-order concerns and delegate peer-discovery, validator selection, staking, upgrades, and consensus to CometBFT. The consensus engine runs in one process and controls the state machine, while the application runs in another process. The architecture is equally appropriate for **private or public blockchains**.
+[CometBFTBFT](https://docs.cometbft.com/v0.37/) packages the networking and consensus layers of a blockchain and presents an interface to the application layer, the **Application Blockchain Interface (ABCI)**. Developers can focus on higher-order concerns and delegate peer-discovery, validator selection, staking, upgrades, and consensus to CometBFT. The consensus engine runs in one process and controls the state machine, while the application runs in another process. The architecture is equally appropriate for **private or public blockchains**.
 
 CometBFT is connected to the application by a socket protocol. ABCI provides a socket for applications written in other languages. If the application is written in the same language as the CometBFT implementation, the socket is not used.
 
@@ -97,7 +93,7 @@ CometBFT provides security guarantees, including the following:
 * **Strict accountability** for fork creation allows determination of liability.
 * Transactions are **finalized** as soon as a block is created.
 
-CometBFT is not concerned with the interpretation of transactions. That occurs at the application layer. CometBFT presents confirmed, well-formed transactions and blocks of transactions agnostically. CometBFT is un-opinionated about the meaning any transactions have.
+TCometBFT is not concerned with the interpretation of transactions. That occurs at the application layer. CometBFT presents confirmed, well-formed transactions and blocks of transactions agnostically. CometBFT is un-opinionated about the meaning any transactions have.
 
 The _block time_ is approximately seven seconds, and blocks may contain thousands of transactions. Transactions are finalized and cannot be overturned as soon as they appear in a block.
 
@@ -167,9 +163,9 @@ This is itself a considerable step forward that simplifies the creation of uniqu
 
 If you want to continue exploring ABCI, you can find more detailed information here:
 
-* [ABCI GitHub repository: ABCI prose specification](https://github.com/cometbft/cometbft/blob/main/spec/abci/README.md)
-* [CometBFT GitHub repository: A Protobuf file on types](https://github.com/cometbft/cometbft/blob/main/proto/tendermint/types/types.proto)
-* [CometBFT GitHub repository: A Go interface](https://github.com/cometbft/cometbft/blob/main/abci/types/application.go)
+* [ABCI GitHub repository: ABCI prose specification](https://github.com/tendermint/abci/blob/master/specification.md)
+* [Tendermint GitHub repository: A Protobuf file on types](https://github.com/tendermint/abci/blob/master/types/types.proto)
+* [Tendermint GitHub repository: A Go interface](https://github.com/tendermint/abci/blob/master/types/application.go)
 * [CometBFT documentation](https://docs.cometbft.com/v0.37/)
 
 </HighlightBox>
@@ -207,13 +203,13 @@ Transactions and blocks utilize several key methods and message types:
 
 Many transactions that could be broadcast should not be broadcast. Examples include malformed transactions and spam-like artifacts. However, CometBFT cannot determine the transaction interpretation because it is agnostic to it. To address this, the Application Blockchain Interface includes a `CheckTx` method. CometBFT uses this method to ask the application layer if a transaction is valid. Applications implement this function.
 
-### `FinalizeBlock`
+### `DeliverTx`
 
-`FinalizeBlock` is a method introduced in CometBFT v0.38.0 which replaces the traditional ABCI methods of `BeginBlock`, `DeliverTx`, and `EndBlock`.
+CometBFT calls the `DeliverTx` method to pass block information to the application layer for interpretation and possible state machine transition.
 
-This method is responsible for executing the block and returning a response to the consensus engine. By implementing ProcessProposal, transactions are processed before the block execution phase and are already present in the state machine. This means that there is no need for the traditional ABCI methods of `BeginBlock`, `DeliverTx`, and `EndBlock` to handle the transaction execution and state updates. This simplifies the ABCI interface and increases flexibility in the execution pipeline.
+### `BeginBlock` and `EndBlock`
 
-The FinalizeBlock method executes the block, including any necessary transaction processing and state updates, and returns a ResponseFinalizeBlock object which contains any necessary information about the executed block.
+`BeginBlock` and `EndBlock` messages are sent through the ABCI even if blocks contain no transactions. This provides positive confirmation of basic connectivity and helps identify time periods with no operations. These methods facilitate the execution of scheduled processes that should always run because they call methods at the application level, where developers define processes.
 
 <HighlightBox type="tip">
 
@@ -261,7 +257,7 @@ When you revisit this design exercise in later chapters, the goal will be to imp
 
 </HighlightBox>
 
-There is a lot you need to do beyond implementing the rules of the game, so simplify as much as possible. Examine these [ABCI specs](https://github.com/cometbft/cometbft/tree/main/spec/abci) to see what the application needs in order to comply with ABCI. Try to identify which basic resources you would use to make a first, *imperfect* checkers game blockchain.
+There is a lot you need to do beyond implementing the rules of the game, so simplify as much as possible. Examine these [ABCI specs](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md) to see what the application needs in order to comply with ABCI. Try to identify which basic resources you would use to make a first, *imperfect* checkers game blockchain.
 
 ### "Make" the state machine
 
@@ -287,7 +283,7 @@ To simplify, begin with only a single game and a single board. You can decide im
 func (game *Game) String() string
 ```
 
-Store the board at `/store/board` and return it in the response's `Value` when requested via the [`Query`](https://github.com/cometbft/cometbft/blob/main/spec/abci/abci%2B%2B_methods.md#query) command at `path = "/store/board"`. If and when you need to re-instantiate the board state out of its serialized form, call:
+Store the board at `/store/board` and return it in the response's `Value` when requested via the [`Query`](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md#query-1) command at `path = "/store/board"`. If and when you need to re-instantiate the board state out of its serialized form, call:
 
 ```go [https://github.com/batkinson/checkers-go/blob/a09daeb/checkers/checkers.go#L331]
 func Parse(s string) (*Game, error)
@@ -299,7 +295,7 @@ Your application needs its own database to store the state. The application must
 
 #### `InitChain` - the initial chain state
 
-[This is where](https://github.com/cometbft/cometbft/blob/main/spec/abci/abci%2B%2B_methods.md#initchain) your only game is initialized. CometBFT sends `app_state_bytes: bytes` to your application with the initial (genesis) state of the blockchain. You already know what it would look like to represent a single game.
+[This is where](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md#initchain) your only game is initialized. CometBFT sends `app_state_bytes: bytes` to your application with the initial (genesis) state of the blockchain. You already know what it would look like to represent a single game.
 <br/><br/>
 Your application:
 
@@ -320,15 +316,15 @@ Next you must decide how to represent a move. In the ready-made implementation, 
 > `AppHash: []byte`: an arbitrary byte array returned by the application after executing and committing the previous block. This serves as the basis to validate any Merkle proofs that come from the ABCI application, and represents the state of the actual application rather than the state of the blockchain itself. The first block's `block.Header.AppHash` is given by `ResponseInitChain.app_hash`.
 
 This _implementation detail_ was skipped before instructing the application to load the right state of the application from its database, which includes the correct `/store/board`. It is important that the application is able to load a known state at **any** point in time. There could have been a crash or a restore of some sort that de-synchronized CometBFT and the application.
-
+<br/><br/>
 The application should work off the last state it has arrived at, in case the header has omitted the `AppHash` (which should never happen).
-
+<br/><br/>
 The application is now ready to respond to the upcoming `CheckTx` and `DeliverTx` with the state loaded.
 
 #### `CheckTx` - a new transaction appears in the transaction pool
 
 CometBFT [asks](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md#checktx-1) your application whether the transaction is worth keeping at all. For maximum simplification, you are only concerned with whether there is a valid move in the transaction. You check whether there are four `int` in the serialized information for this. You can also check that the `int` themselves are within the boundaries of the board, for example between `0` and `7`.
-
+<br/><br/>
 It is better **not** to check if the move is valid according to the rules of the application.
 
 ```go [https://github.com/batkinson/checkers-go/blob/a09daeb/checkers/checkers.go#L168]
@@ -387,23 +383,23 @@ It would be judicious to inform CometBFT about the `GasUsed (int64)`. Each move 
 #### `EndBlock` - the block is being finished
 
 Ignoring the issue of validators for now, [this is used](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md#endblock) to let CometBFT know what events should be emitted (similarly to how `DeliverTx` was handled). You have only checkers moves, so it is not very clear what could be interesting at a later date.
-<br/> <br/>
+<br/><br/>
 Assume that you want to tally what happened in the block. You return this aggregate event:
 
-```[
+```
+[
     { key: "name", value: "aggregateAction", index: true },
     { key: "black-captured-count", value: uint32, index: false },
     { key: "black-king-captured-count", value: uint32, index: false },
     { key: "red-captured-count", value: uint32, index: false },
     { key: "red-king-captured-count", value: uint32, index: false }
-]```
+]
+```
 
 #### `Commit` - your work here is done
 
-The block is now [confirmed](https://github.com/cometbft/cometbft/blob/main/spec/abci/abci%2B%2B_methods.md#commit). The application needs to save its state to storage, i.e. to its database. The state, which includes `/store/board`, is uniquely identified by its Merkle root hash. As per the ABCI, this hash has to be returned in a `[]byte` form. For a consensus to be able to emerge, the hash needs to be deterministic after the sequence of the same `BeginBlock`, the same `DeliverTx` methods in the same order and the same `EndBlock` as mentioned in [the documentation](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md#determinism). 
-
-https://github.com/cometbft/cometbft/blob/main/spec/abci/abci++_basic_concepts.md#deterministic-state-machine-replication
-
+The block is now [confirmed](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md#commit). The application needs to save its state to storage, i.e. to its database. The state, which includes `/store/board`, is uniquely identified by its Merkle root hash. As per the ABCI, this hash has to be returned in a `[]byte` form. For a consensus to be able to emerge, the hash needs to be deterministic after the sequence of the same `BeginBlock`, the same `DeliverTx` methods in the same order and the same `EndBlock` as mentioned in [the documentation](https://github.com/tendermint/tendermint/blob/master/spec/abci/abci.md#determinism).
+<br/><br/>
 The application may also keep a pointer in its database regarding which state is the latest, so it can purge the board from its memory after having returned and saved. The next `BeginBlock` will inform the application about which state to load. The application should keep the state in memory to quickly build on it if the next `BeginBlock` fails to mention `AppHash` or mentions the same `AppHash` previously calculated.
 
 ### What if you like extreme serialization?
